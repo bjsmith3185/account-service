@@ -7,6 +7,7 @@ public class CreditView {
     private int accountId;
     private int balance;
     private int credit;
+    private int customerId;
 
 
     // getters / setters
@@ -35,6 +36,14 @@ public class CreditView {
         this.credit = credit;
     }
 
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+
     // equals / hash
 
     @Override
@@ -44,12 +53,13 @@ public class CreditView {
         CreditView that = (CreditView) o;
         return accountId == that.accountId &&
                 balance == that.balance &&
-                credit == that.credit;
+                credit == that.credit &&
+                customerId == that.customerId;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountId, balance, credit);
+        return Objects.hash(accountId, balance, credit, customerId);
     }
 
     // to string
@@ -61,6 +71,7 @@ public class CreditView {
                 "accountId=" + accountId +
                 ", balance=" + balance +
                 ", credit=" + credit +
+                ", customerId=" + customerId +
                 '}';
     }
 }

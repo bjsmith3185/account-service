@@ -7,6 +7,7 @@ public class WithdrawView {
     private int accountId;
     private int balance;
     private int withdraw;
+    private int customerId;
 
     // getters / setters
 
@@ -34,6 +35,13 @@ public class WithdrawView {
         this.withdraw = withdraw;
     }
 
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
 
     // equals / hash
 
@@ -44,13 +52,15 @@ public class WithdrawView {
         WithdrawView that = (WithdrawView) o;
         return accountId == that.accountId &&
                 balance == that.balance &&
-                withdraw == that.withdraw;
+                withdraw == that.withdraw &&
+                customerId == that.customerId;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountId, balance, withdraw);
+        return Objects.hash(accountId, balance, withdraw, customerId);
     }
+
 
     // to string
 
@@ -61,6 +71,7 @@ public class WithdrawView {
                 "accountId=" + accountId +
                 ", balance=" + balance +
                 ", withdraw=" + withdraw +
+                ", customerId=" + customerId +
                 '}';
     }
 }

@@ -2,12 +2,11 @@ package com.brian.frontservice.dto;
 
 import java.util.Objects;
 
-public class CreditView {
+public class Account {
 
     private int accountId;
     private int balance;
-    private int credit;
-
+    private int customerId;
 
     // getters / setters
 
@@ -27,12 +26,12 @@ public class CreditView {
         this.balance = balance;
     }
 
-    public int getCredit() {
-        return credit;
+    public int getCustomerId() {
+        return customerId;
     }
 
-    public void setCredit(int credit) {
-        this.credit = credit;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
     // equals / hash
@@ -41,26 +40,27 @@ public class CreditView {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CreditView that = (CreditView) o;
+        Account that = (Account) o;
         return accountId == that.accountId &&
                 balance == that.balance &&
-                credit == that.credit;
+                customerId == that.customerId;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountId, balance, credit);
+        return Objects.hash(accountId, balance, customerId);
     }
+
 
     // to string
 
 
     @Override
     public String toString() {
-        return "CreditView{" +
+        return "Account{" +
                 "accountId=" + accountId +
                 ", balance=" + balance +
-                ", credit=" + credit +
+                ", customerId=" + customerId +
                 '}';
     }
 }

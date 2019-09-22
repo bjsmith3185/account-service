@@ -2,11 +2,12 @@ package com.brian.frontservice.dto;
 
 import java.util.Objects;
 
-public class WithdrawView {
+public class Withdraw {
 
     private int accountId;
     private int balance;
     private int withdraw;
+    private int customerId;
 
     // getters / setters
 
@@ -34,6 +35,13 @@ public class WithdrawView {
         this.withdraw = withdraw;
     }
 
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
 
     // equals / hash
 
@@ -41,26 +49,29 @@ public class WithdrawView {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        WithdrawView that = (WithdrawView) o;
+        Withdraw that = (Withdraw) o;
         return accountId == that.accountId &&
                 balance == that.balance &&
-                withdraw == that.withdraw;
+                withdraw == that.withdraw &&
+                customerId == that.customerId;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountId, balance, withdraw);
+        return Objects.hash(accountId, balance, withdraw, customerId);
     }
+
 
     // to string
 
 
     @Override
     public String toString() {
-        return "WithdrawView{" +
+        return "Withdraw{" +
                 "accountId=" + accountId +
                 ", balance=" + balance +
                 ", withdraw=" + withdraw +
+                ", customerId=" + customerId +
                 '}';
     }
 }

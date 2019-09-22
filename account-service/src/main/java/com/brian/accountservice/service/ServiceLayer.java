@@ -32,6 +32,7 @@ public class ServiceLayer {
         int newBalance = account.getBalance() + creditView.getCredit();
 
         creditView.setBalance(newBalance);
+        creditView.setCustomerId(account.getCustomerId());
         // update new balance in db
         account.setBalance(newBalance);
         accountDao.updateAccount(account);
@@ -49,6 +50,8 @@ public class ServiceLayer {
         if ( account.getBalance() >= withdrawView.getWithdraw() ) {
             int newBalance =  account.getBalance() - withdrawView.getWithdraw();
             withdrawView.setBalance(newBalance);
+            withdrawView.setCustomerId(account.getCustomerId());
+
             // update new balance in db
             account.setBalance(newBalance);
             accountDao.updateAccount(account);
