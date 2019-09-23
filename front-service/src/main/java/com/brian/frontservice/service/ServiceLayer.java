@@ -100,6 +100,12 @@ public class ServiceLayer {
         return newAccountView;
     }
 
+    public NewCustomerView newCustomer(NewCustomerView newCustomerView) {
+        Customer customer = customerServiceClient.newCustomer(toCustomer(newCustomerView));
+        newCustomerView = toNewCustomerView(customer);
+        return newCustomerView;
+    }
+
 
 
 // helper methods
@@ -130,8 +136,23 @@ public class ServiceLayer {
         return customer;
     }
 
+    // convert from NewCustomerView to Customer
+    public Customer toCustomer(NewCustomerView newCustomerView) {
+        Customer customer = new Customer();
+        customer.setFirstName(newCustomerView.getFirstName());
+        customer.setLastName(newCustomerView.getLastName());
+        return customer;
 
+    }
 
+    // convert from Customer to NewCustomerView
+    public NewCustomerView toNewCustomerView(Customer customer) {
+        NewCustomerView newCustomerView = new NewCustomerView();
+        newCustomerView.setCustomerId(customer.getCustomerId());
+        newCustomerView.setFirstName(customer.getFirstName());
+        newCustomerView.setLastName(customer.getLastName());
+        return newCustomerView;
+    }
 
 
 }

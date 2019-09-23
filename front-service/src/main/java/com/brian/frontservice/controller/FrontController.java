@@ -58,6 +58,19 @@ public class FrontController {
     }
 
 
+    // create a new customer
+    @RequestMapping(value = "/createcustomer", method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.CREATED)
+    public NewCustomerView newCustomer(@RequestBody NewCustomerView newCustomerView) {
+
+        return service.newCustomer(newCustomerView);
+    }
+
+
+
+    // method to return all account types by customer id with balance
+
+
 
 
 }
